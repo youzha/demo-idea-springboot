@@ -3,6 +3,7 @@ package com.lin.demoidea;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletComponentScan;
+import org.springframework.context.ConfigurableApplicationContext;
 
 @SpringBootApplication
 // servlet 注册
@@ -10,7 +11,11 @@ import org.springframework.boot.web.servlet.ServletComponentScan;
 public class DemoIdeaApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(DemoIdeaApplication.class, args);
+        //ConfigurableApplicationContext context =
+                SpringApplication.run(DemoIdeaApplication.class, args);
+        //context.getBean("");
+        //关闭上下文
+        // context.close();
     }
 
 }
