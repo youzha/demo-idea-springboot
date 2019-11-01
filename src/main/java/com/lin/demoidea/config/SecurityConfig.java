@@ -3,6 +3,7 @@ package com.lin.demoidea.config;
 import com.lin.demoidea.common.security.service.MyUserDetailsService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+/*
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,18 +18,21 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.Arrays;
+*/
 
 /**
  * @author ljq
  * @create 2019/10/25 0025
  */
-@EnableWebSecurity
+/*@EnableWebSecurity
 @Configuration
-@EnableGlobalMethodSecurity(prePostEnabled = true)  //  启用方法级别的权限认证
-public class SecurityConfig extends WebSecurityConfigurerAdapter {
+@EnableGlobalMethodSecurity(prePostEnabled = true)  //  启用方法级别的权限认证*/
+public class SecurityConfig
+       // extends WebSecurityConfigurerAdapter
+{
     private static final Logger logger = LoggerFactory.getLogger(SecurityConfig.class);
 
-    @Autowired
+  /*  @Autowired
      private MyUserDetailsService myUserDetailsService;
 
     @Override
@@ -50,7 +54,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         //  允许所有用户访问"/"和"/index.html"
                  http.authorizeRequests()
                          .anyRequest().permitAll();// 暂时允许所有请求
-                         /*.antMatchers("/", "/index.html").permitAll()
+                         *//*.antMatchers("/", "/index.html").permitAll()
                          .anyRequest().authenticated()   // 其他地址的访问均需验证权限
                          .and()
                          .formLogin()
@@ -58,7 +62,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                          .failureUrl("/error.html").permitAll()
                          .and()
                          .logout()
-                         .logoutSuccessUrl("/index.html");*/
+                         .logoutSuccessUrl("/index.html");*//*
     }
-
+*/
 }
