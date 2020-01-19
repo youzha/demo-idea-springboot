@@ -14,6 +14,7 @@ import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
+import org.springframework.data.repository.query.Param;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -53,6 +54,12 @@ public class RabbitMQConfig {
     public static final String ROUTINGKEY_B = "lin_spring-boot-routingKey_B";
     public static final String ROUTINGKEY_C = "lin_spring-boot-routingKey_C";
 
+    /**
+     * @Author: ljq
+     * @description: 若是消费者和生产者在不同项目， 消费者只需要配这个
+     * @Param:
+     * @Return:
+     */
     @Bean
     public ConnectionFactory connectionFactory() {
         CachingConnectionFactory connectionFactory = new CachingConnectionFactory(host,port);
@@ -112,7 +119,7 @@ public class RabbitMQConfig {
 
     /**
      * @Author: ljq
-     * @description: 消息消费者，对队列B进行监听
+     * @description: 消息消费者，对队列B进行监听（另一种消息处理的方法）
      * @Param: []
      * @Return: org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer
      */
@@ -129,7 +136,7 @@ public class RabbitMQConfig {
             @Override
             public void onMessage(Message message, Channel channel) throws Exception {
                 byte[] body = message.getBody();
-                System.out.println("队列B接受消息 " + new String(body));
+                System.out.println("接受uom消息 " + new String(body));
                 channel.basicAck(message.getMessageProperties().getDeliveryTag(), false); //确认消息成功消费
             }
         });
